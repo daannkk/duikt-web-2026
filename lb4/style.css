@@ -1,0 +1,256 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    min-height: 750px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: white;
+    border: 3px solid #ccc;
+}
+
+/* HEADER */
+
+.header {
+    display: grid;
+    grid-template-columns: 1.3fr 0.8fr 1fr 1fr;
+    align-items: end;
+    gap: 15px;
+    position: relative;
+    padding: 10px;
+    border-bottom: 2px solid #999;
+}
+
+.title {
+    margin: 0;
+    font-size: 36px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.week,
+.habit,
+.improvement,
+.rocked {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.week input,
+.habit input {
+    width: 100%;
+    min-width: 30px;
+    border: none;
+    border-bottom: 1px solid #999;
+    outline: none;
+}
+
+.improvement {
+    position: relative;
+    grid-column: 4;
+}
+
+.rocked {
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+
+/* MAIN GRID */
+
+.main {
+    display: grid;
+    grid-template-columns: 28% 72%;
+    min-height: 650px;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    padding: 5px 12px;
+    border-right: 1px solid #999;
+}
+
+.sidebar-label {
+    text-align: right;
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.task-section {
+    margin-bottom: 15px;
+}
+
+.task-section h3 {
+    margin: 5px 0;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.task input[type="checkbox"] {
+    cursor: pointer;
+    margin: 0;
+}
+
+.task input[type="text"] {
+    width: 100%;
+    min-width: 0;
+    height: 20px;
+    padding: 2px;
+    border: none;
+    border-bottom: 1px solid #aaa;
+    outline: none;
+    font-size: 12px;
+}
+
+/* CALENDAR GRID */
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, minmax(250px, 1fr));
+}
+
+/* DAYS */
+
+.day {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+}
+
+.day-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 8px;
+}
+
+.day-header h3 {
+    margin: 0;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.day-header input {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
+
+.day textarea {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    resize: none;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+/* DAY POSITIONS */
+
+.monday {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.tuesday {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.wednesday {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.thursday {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.friday {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.saturday {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.sunday {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+/* FOOTER */
+
+.footer {
+    height: 15px;
+    background-color: #999;
+}
+
+/* SCREEN SIZE */
+
+@media (max-width: 850px) {
+
+    .header {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .title {
+        font-size: 26px;
+    }
+
+    .improvement {
+        grid-column: auto;
+    }
+
+    .rocked {
+        position: static;
+    }
+
+    .main {
+        grid-template-columns: 30% 70%;
+    }
+
+    .calendar {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+
+    .day {
+        min-height: 250px;
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+}
